@@ -1,12 +1,12 @@
+.container {
+  /* margin: 0 auto; */
+}
 .row {
-  height: 15px;
   display: flex;
   justify-content: center;
 }
 .square {
   border: 0.5px solid black;
-  width: 15px;
-  height: 100%;
 }
 .active {
   background-color: black;
