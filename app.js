@@ -5,6 +5,17 @@ const gridSize = 16;
 const container = document.querySelector('.container');
 const resetButton = document.createElement('button');
 
+// reset grid
+function resetGrid() {
+    squares.forEach((square) => {
+        square.classList.remove('active');
+    });
+}
+resetButton.classList.add('reset-button');
+resetButton.textContent = 'reset';
+resetButton.setAttribute('onClick', 'resetGrid()')
+container.appendChild(resetButton);
+
 // create grid
 for (let i = 0; i < gridSize; i++) {
     let row = document.createElement('div');
@@ -29,16 +40,3 @@ squares.forEach((square) => {
         square.classList.add('active');
     });
 });
-
-// reset grid
-function resetGrid() {
-    squares.forEach((square) => {
-        square.classList.remove('active');
-    });
-}
-resetButton.classList.add('reset-button');
-resetButton.textContent = 'reset';
-resetButton.setAttribute('onClick', 'resetGrid()')
-container.prepend(resetButton);
-
-
