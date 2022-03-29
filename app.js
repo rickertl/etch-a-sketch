@@ -14,9 +14,9 @@ const resetButton = document.createElement('button');
 // calculate square size and insert style into head
 function calcSquare() {
     if (gridHeight < gridWidth) {
-        squareSize = (gridHeight * .75) / gridNumber;
+        squareSize = (gridHeight * .70) / gridNumber;
     } else {
-        squareSize = (gridWidth * .75) / gridNumber;
+        squareSize = (gridWidth * .70) / gridNumber;
     }
     headStyle.textContent = `.square {height: ${squareSize}px; width: ${squareSize}px;}`;
     head.appendChild(headStyle);
