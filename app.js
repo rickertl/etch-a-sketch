@@ -1,5 +1,5 @@
 // initialize algorithm variables
-const gridNumber = 16;
+let gridNumber = 16;
 let gridWidth = window.innerWidth;
 let gridHeight = window.innerHeight;
 let squareSize = '';
@@ -32,9 +32,16 @@ window.addEventListener('resize', () => {
 
 // reset grid button
 function resetGrid() {
-    squares.forEach((square) => {
-        square.classList.remove('active');
-    });
+    // squares.forEach((square) => {
+    //     square.classList.remove('active');
+    // });
+    gridNumber = prompt("How many squares per side? (100 max)", "16");
+    if ((gridNumber != null) && (gridNumber <= 100)) {
+      calcSquare(gridNumber);
+      grid.textContent = '';
+      createGrid();
+      fillSquares();
+    }
 }
 resetButton.classList.add('reset-button');
 resetButton.textContent = 'reset';
@@ -44,25 +51,31 @@ container.appendChild(resetButton);
 // create grid
 grid.classList.add('grid');
 container.appendChild(grid);
-for (let i = 0; i < gridNumber; i++) {
-    let row = document.createElement('div');
-    row.classList.add('row');
-    grid.appendChild(row);
+function createGrid() {
     for (let i = 0; i < gridNumber; i++) {
-        let square = document.createElement('div');
-        square.classList.add('square');
-        row.appendChild(square);
+        let row = document.createElement('div');
+        row.classList.add('row');
+        grid.appendChild(row);
+        for (let i = 0; i < gridNumber; i++) {
+            let square = document.createElement('div');
+            square.classList.add('square');
+            row.appendChild(square);
+        }
     }
 }
+createGrid();
 
 // fill squares on mouseover
-// query all squares
-const squares = document.querySelectorAll('.square');
-// loop through each square
-squares.forEach((square) => {
-    // and add a 'mouseover' listener
-    square.addEventListener('mouseover', () => {
-        // add active class 
-        square.classList.add('active');
+function fillSquares() {
+    // query all squares
+    let squares = document.querySelectorAll('.square');
+    // loop through each square
+    squares.forEach((square) => {
+        // and add a 'mouseover' listener
+        square.addEventListener('mouseover', () => {
+            // add active class 
+            square.classList.add('active');
+        });
     });
-});
+}
+fillSquares();
