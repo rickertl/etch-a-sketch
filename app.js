@@ -45,8 +45,8 @@ function resetGrid() {
 }
 resetButton.classList.add('reset-button');
 resetButton.textContent = 'reset';
-resetButton.setAttribute('onClick', 'resetGrid()')
 container.appendChild(resetButton);
+resetButton.addEventListener('click', resetGrid);
 
 // create grid
 grid.classList.add('grid');
